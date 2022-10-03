@@ -18,10 +18,8 @@ app.get("/infoAboutCrypto/:symbol", (req, res) => {
     );
     return response.json();
   };
-  console.log(process.env.COINMARKETCAP_API_KEY);
   getInfoAboutCrypto().then((data) => {
     if (data.status.error_code === 400) {
-      console.log("400");
       res.send({
         status: "error",
         statusCode: 400,
@@ -33,13 +31,14 @@ app.get("/infoAboutCrypto/:symbol", (req, res) => {
     }
     if (data) {
       const signToDto = req.params.symbol.length > 3 ? "1" : req.params.symbol.toUpperCase();
+      console.log(data.data[signToDto][0])
       const dto = {
-        id: data.data[signToDto].id,
-        name: data.data[signToDto].name,
-        symbol: data.data[signToDto].symbol,
-        slug: data.data[signToDto].slug,
-        description: data.data[signToDto].description,
-        logo: data.data[signToDto].logo,
+        id: data.data[signToDto][0].id || null,
+        name: data.data[signToDto][0].name || null,
+        symbol: data.data[signToDto][0].symbol || null,
+        slug: data.data[signToDto][0].slug || null,
+        description: data.data[signToDto][0].description || null,
+        logo: data.data[signToDto][0].logo || null,
       };
       res.send({
         status: "succes",
@@ -47,14 +46,10 @@ app.get("/infoAboutCrypto/:symbol", (req, res) => {
         ok: true,
         text: req.params.symbol + " has been found",
         data: dto,
-        test:data,
       });
       return;
     }
   });
-
-  //   const symbol = req.params.symbol;
-  //   res.send(getInfoAboutCrypto() || "Sorry, we don't have that symbol");
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
