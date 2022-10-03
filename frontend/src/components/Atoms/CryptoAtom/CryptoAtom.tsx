@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import { Card } from "./styles";
 import { Spinner } from "./index";
 import { useQuery } from "@tanstack/react-query";
+import { useCallback } from "react";
 
 const CryptoAtom = ({ id, name, onRemove }: IProps) => {
   const { data, isLoading, error } = useOpenWebSocket(name, "USDT");
   const [timeOfLoadingData, setTimeOfLoading] = useState(0);
+  const [testData, setTestData] = useState<any>(null);
   let cryptoPrice = 0;
   if (data.p) {
     cryptoPrice = data.p.slice(0, 8);
@@ -19,19 +21,32 @@ const CryptoAtom = ({ id, name, onRemove }: IProps) => {
       }, 1000);
       return () => clearTimeout(timeOfLoading);
     }
+
     return () => null;
   }, [timeOfLoadingData]);
+  useEffect(() => {}, []);
 
-  // const {
-  //   isLoading: infoIsLoading,
-  //   error: infoError,
-  //   data: infoData,
-  // } = useQuery(["cryptoItem"], () => {
-  //   // fetch(`${import.meta.env.VITE_COINMARKETCAP_API_ENDPOINT}${name}`).then((res) => {
-  //   fetch(`${import.meta.env.VITE_COINMARKETCAP_API_ENDPOINT}${name}`).then((res) => {
-  //     res.json()
-  //   });
-  // });
+  const fetchInfoAboutCrypto = useCallback(async () => {
+    return fetch(`/infoAboutCrypto/${name}`, {
+      // fetch("/api", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        return data;
+      });
+  }, []);
+
+  const {
+    isLoading: infoIsLoading,
+    isError: infoIsError,
+    data: infoData,
+    error: infoError,
+  } = useQuery([`cryptoItem${name}`], fetchInfoAboutCrypto);
 
   return (
     <Card
@@ -58,6 +73,7 @@ const CryptoAtom = ({ id, name, onRemove }: IProps) => {
         <>
           <h1>{cryptoPrice}</h1>
           {name}
+          <img src={infoData?.data?.logo} alt="icons of crypto" />
         </>
       )}
     </Card>
