@@ -11,11 +11,11 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { state, dispatch } = useContext(CryptoContext);
+  const { state } = useContext(CryptoContext);
   return (
     <QueryClientProvider client={queryClient}>
       <Container>
@@ -28,18 +28,17 @@ function App() {
         />
         <AnimatePresence>
           <GridComponent>
-            <CryptoAtom id={1} name="btc" onRemove={() => null} />
-            <CryptoAtom id={1} name="ETH" onRemove={() => null} />
-            <CryptoAtom id={1} name="BNB" onRemove={() => null} />
-            <CryptoAtom id={1} name="XRP" onRemove={() => null} />
+            <CryptoAtom id={1} name="bitcoin" symbol="btc" />
+            <CryptoAtom id={1} name="ethereum" symbol="eth" />
+            <CryptoAtom id={1} name="BNB" symbol="bnb" />
+            <CryptoAtom id={1} name="XRP" symbol="xrp" />
 
             {state.map((el) => (
               <CryptoAtom
                 id={el.id}
                 name={el.name}
                 key={el.id}
-                onRemove={() => dispatch({ type: "DELETE", payload: el.id })}
-                // onRemove={() => dispatch({ type: "ADD", payload: {id:10,name:"ETHW"} })}
+                symbol={el.symbol}
               />
             ))}
           </GridComponent>

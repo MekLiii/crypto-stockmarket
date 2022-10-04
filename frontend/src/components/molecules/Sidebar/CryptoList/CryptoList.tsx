@@ -4,12 +4,12 @@ import { CryptoListItem } from "./index";
 import { useState, useContext } from "react";
 
 const CryptoList = () => {
-  const { state, dispatch } = useContext(CryptoContext);
+  const { state } = useContext(CryptoContext);
   return (
     <CryptoListWrapper>
       {state.map((el) => {
         return (
-          <CryptoListItem name={el.name} key={el.id} id={el.id}/>
+          <CryptoListItem name={el.name as string} key={el.id} id={el.id} logo={el.logo as string}/>
         );
       })}
     </CryptoListWrapper>

@@ -11,9 +11,10 @@ export const StyledBurger = styled.div<TStyledBurger>`
   display: flex;
   justify-content: space-around;
   flex-flow: column nowrap;
-  position: absolute;
+  position: fixed;
   top: 15px;
   left: 20px;
+  z-index:1200;
 
   div {
     width: 2rem;
@@ -39,5 +40,5 @@ export const StyledBurger = styled.div<TStyledBurger>`
 export const Box = styled.div`
   width: 50px;
   height: 50px;
-  z-index: 1120;
+ 
 `;

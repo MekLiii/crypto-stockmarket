@@ -15,7 +15,12 @@ export const BoxWithName = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    img:first-child {
+        padding-right: 40%;
+        margin-left: 10px;
+    }
 `
 export const BoxWithIcons = styled.div`
     flex: .4;
@@ -42,4 +47,10 @@ export const Icon = styled.div<TIcon>`
 export const Img = styled.img`
     width: 70%;
     height: 70%;
+    filter: invert(0%) sepia(47%) saturate(24%) hue-rotate(2deg) brightness(88%) contrast(105%) !important;
+`
+export const Name = styled.p`
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
 `

@@ -26,36 +26,7 @@ const Sidebar = ({ onClose }: TProps) => {
         exit={{ x: -100 }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* <input
-          placeholder="Please write symbol of crypto currency"
-          
-        />
-        <button
-          onClick={() =>
-            dispatch({
-              type: "ADD",
-              payload: {
-                id: state[state.length - 1]?.id + 1 || 1,
-                name: value,
-              },
-            })
-          }
-        >
-          Submit
-        </button> */}
-        <AddCryptoInput
-          // value={value}
-          // onChange={({ target }) => setValue(target.value)}
-          // onButtonClick={() =>
-          //   dispatch({
-          //     type: "ADD",
-          //     payload: {
-          //       id: state[state.length - 1]?.id + 1 || 1,
-          //       name: value,
-          //     },
-          //   })
-          // }
-        />
+        <AddCryptoInput />
         <CryptoList />
       </Bar>
     </Box>

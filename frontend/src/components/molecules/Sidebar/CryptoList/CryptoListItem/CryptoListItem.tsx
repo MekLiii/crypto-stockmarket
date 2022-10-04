@@ -1,4 +1,4 @@
-import { Box, BoxWithName, BoxWithIcons, Icon, Img } from "./style";
+import { Box, BoxWithName, BoxWithIcons, Icon, Img,Name } from "./style";
 import { Settings, TrashCan } from "./index";
 import { CryptoContext } from "./index";
 import { useContext } from "react";
@@ -6,9 +6,10 @@ import { useContext } from "react";
 type TProps = {
   name: string;
   id: number;
+  logo: string;
 };
 
-const CryptoListItem = ({ name, id }: TProps) => {
+const CryptoListItem = ({ name, id,logo }: TProps) => {
   const { dispatch } = useContext(CryptoContext);
   const deleteCrypto = () => {
     dispatch({
@@ -25,7 +26,8 @@ const CryptoListItem = ({ name, id }: TProps) => {
       layout
     >
       <BoxWithName>
-        <p>{name}</p>
+        <img src={logo} alt="logo" style={{width:"25px",height:"auto"}}/>
+        <Name>{name}</Name>
       </BoxWithName>
       <BoxWithIcons>
         <Icon bgc="rgba(0,0,0,0.3)" onClick={deleteCrypto}>
