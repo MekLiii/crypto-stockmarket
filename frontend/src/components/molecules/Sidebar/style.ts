@@ -12,5 +12,5 @@ export const Box = styled(motion.div)`
 export const Bar = styled(motion.div)`
     width: 30%;
     height: 100%;
-    background-color: ${({theme}) => theme.background.light};
+    background-color: #2C2B2C;
 `

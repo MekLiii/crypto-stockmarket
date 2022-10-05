@@ -1,7 +1,7 @@
 import { CryptoListWrapper } from "./style";
 import { CryptoContext } from "./index";
 import { CryptoListItem } from "./index";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 const CryptoList = () => {
   const { state } = useContext(CryptoContext);

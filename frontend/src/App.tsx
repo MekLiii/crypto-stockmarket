@@ -8,7 +8,6 @@ import { CryptoContext } from "./hooks/useCryptoContext";
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -29,9 +28,9 @@ function App() {
         <AnimatePresence>
           <GridComponent>
             <CryptoAtom id={1} name="bitcoin" symbol="btc" />
-            <CryptoAtom id={1} name="ethereum" symbol="eth" />
-            <CryptoAtom id={1} name="BNB" symbol="bnb" />
-            <CryptoAtom id={1} name="XRP" symbol="xrp" />
+            <CryptoAtom id={2} name="ethereum" symbol="eth" />
+            <CryptoAtom id={3} name="BNB" symbol="bnb" />
+            <CryptoAtom id={4} name="XRP" symbol="xrp" />
 
             {state.map((el) => (
               <CryptoAtom

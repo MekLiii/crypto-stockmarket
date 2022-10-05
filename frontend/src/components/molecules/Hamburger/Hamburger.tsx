@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import styled from "styled-components";
 import { Box, StyledBurger } from "./style";
 
 type TProps = {

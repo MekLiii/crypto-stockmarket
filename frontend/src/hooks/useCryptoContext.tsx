@@ -40,8 +40,6 @@ const crytoReducer = (state: State, action: Action) => {
       return state.filter((crypto: ICrypto) => crypto.id !== action.payload);
     case "UPDATE":
       return state.map((crypto: ICrypto) => {
-        // crypto.name = action.payload.name;
-        // crypto.symbol = action.payload.symbol;
         if (crypto.symbol === action.payload.symbol) {
           crypto.name = action.payload.name;
           return crypto;

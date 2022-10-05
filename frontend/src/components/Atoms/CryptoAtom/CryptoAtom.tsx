@@ -14,14 +14,10 @@ import { Spinner } from "./index";
 import { CryptoContext } from "./index";
 
 const CryptoAtom = ({ id, name, symbol }: IProps) => {
-  const [symbolOfCrypto, setSymbolOfCrypto] = useState<string>("");
   const { data, isLoading, error } = useOpenWebSocket(symbol, "USDT");
   const [timeOfLoadingData, setTimeOfLoading] = useState<number>(0);
   const cryptoPrice = data.p ? data.p.slice(0, 8) : 0;
-  // if (data.p) {
-  //   cryptoPrice = data.p.slice(0, 8);
-  // }
-  const { state, dispatch } = useContext(CryptoContext);
+  const { state } = useContext(CryptoContext);
 
   useEffect(() => {
     if (isLoading && timeOfLoadingData < 20) {
@@ -37,44 +33,18 @@ const CryptoAtom = ({ id, name, symbol }: IProps) => {
 
   const fetchInfoAboutCrypto = useCallback(async () => {
     return fetch(`/infoAboutCrypto/${name}`, {
-      // fetch("/api", {
-      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          // dispatch({
-          //   type: "ADD",
-          //   payload: {
-          //     symbol: data.data.symbol,
-          //     name: data.data.name,
-          //     id: id,
-          //     logo: data.data.logo,
-          //   },
-          // });
-        }
-
-        // dispatch({
-        //   type: "UPDATE",
-        //   payload: {
-        //     symbol: data.data.symbol,
-        //     name: data.data.name,
-        //     id: id,
-        //     logo: data.data.logo,
-        //   },
-        // });
-        return data;
-      });
+      .then((data) => data);
   }, []);
 
   const {
     isLoading: infoIsLoading,
     isError: infoIsError,
     data: infoData,
-    error: infoError,
   } = useQuery([`cryptoItem${name}`], fetchInfoAboutCrypto);
 
   const getCryptoName = () => {
@@ -137,7 +107,7 @@ const CryptoAtom = ({ id, name, symbol }: IProps) => {
             <Name>{getCryptoName()}</Name>
           </CardLogoSection>
           <CardPriceSection>
-            <h1>{cryptoPrice}</h1>
+            <h2>{cryptoPrice}$</h2>
           </CardPriceSection>
         </CardItem>
       )}

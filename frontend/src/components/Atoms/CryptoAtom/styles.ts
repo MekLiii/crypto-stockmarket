@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 export const Card = styled(motion.div)`
-    background-color:${({ theme }) => theme.background.lightDark};
+    background-color:#302F30;
     height: 200px;
-    box-shadow: 0px 0px 10px 0px ${({ theme }) => theme.boxShadow};
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 `
 export const CardItem = styled.div`
@@ -11,6 +11,10 @@ export const CardItem = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
+
+    h2{
+        color:white;
+    }
 `
 export const CardLogoSection = styled.div`
     display: flex;
@@ -19,7 +23,6 @@ export const CardLogoSection = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: red; */
 `
 
 export const CardPriceSection = styled.div`
@@ -29,12 +32,11 @@ export const CardPriceSection = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: blue; */
 `
 export const Name = styled.h2`
     font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
-    color: ${({ theme }) => "white"};
+    color: white;
 
 `

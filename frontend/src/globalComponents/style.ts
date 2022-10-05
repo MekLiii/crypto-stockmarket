@@ -7,7 +7,7 @@ export const Spiner = styled.svg`
   width: 50px;
   height: 50px;
   .path {
-    stroke: ${({theme}) => theme.blackAndWhite};
+    stroke: #fff;
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }

@@ -1,5 +1,5 @@
 import { Box, BoxWithName, BoxWithIcons, Icon, Img,Name } from "./style";
-import { Settings, TrashCan } from "./index";
+import { TrashCan } from "./index";
 import { CryptoContext } from "./index";
 import { useContext } from "react";
 
@@ -32,9 +32,6 @@ const CryptoListItem = ({ name, id,logo }: TProps) => {
       <BoxWithIcons>
         <Icon bgc="rgba(0,0,0,0.3)" onClick={deleteCrypto}>
           <Img src={TrashCan} alt="icon for deleting item" />
-        </Icon>
-        <Icon bgc="rgba(0,0,0,0.6)" onClick={() => null}>
-          <Img src={Settings} alt="icon for deleting item" />
         </Icon>
       </BoxWithIcons>
     </Box>

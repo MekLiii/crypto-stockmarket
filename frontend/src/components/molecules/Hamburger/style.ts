@@ -19,7 +19,7 @@ export const StyledBurger = styled.div<TStyledBurger>`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ theme,open }) =>open ? theme.whiteAndBlack : theme.blackAndWhite};
+    background-color: white;
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;

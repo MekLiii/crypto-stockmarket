@@ -11,7 +11,7 @@ const GridComponent = styled(motion.div)`
     padding-top:100px; 
 `
 const Container = styled.div`
-    background-color: ${({ theme }) => theme.background.body};
+    background-color: #121212;
     height: 100%;
     min-height: 100vh;
     width: 100%;

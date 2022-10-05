@@ -1,6 +1,4 @@
 import { Box, Bar } from "./style";
-import { useState, useContext } from "react";
-import { CryptoContext } from "./index";
 import { AddCryptoInput } from "./index";
 import { CryptoList } from "./index";
 
@@ -9,8 +7,6 @@ type TProps = {
 };
 
 const Sidebar = ({ onClose }: TProps) => {
-  const [value, setValue] = useState("");
-  const { state, dispatch } = useContext(CryptoContext);
   return (
     <Box
       initial={{ opacity: 0 }}

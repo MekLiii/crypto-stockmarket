@@ -29,11 +29,8 @@ export const Button = styled.button`
     height: 50px;
     border: none;
     outline: none;
-    //set bgc to great green
     background-color: #00ff00;
     cursor: pointer;
-    /* display: grid;
-    place-items: center; */
     display: flex ;
     align-items: center;
     justify-content: center;
