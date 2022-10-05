@@ -18,3 +18,6 @@ Make sure you are using 17.5+ node version.
 ## Used technologies - backend
 - Node
 - Express.js
+
+![Stockmarket1](https://user-images.githubusercontent.com/72619640/194115229-8fecb49e-c842-486d-a424-e0a4e0b9d21a.png)
+![stockMarket2](https://user-images.githubusercontent.com/72619640/194115242-73442108-d559-4c49-b5a0-783faad23ef8.png)
