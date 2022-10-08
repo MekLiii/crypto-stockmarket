@@ -5,7 +5,7 @@ Crypto stock market is an application for preview current crypto stock price. Cu
 ## Installation
 
 Use the package manager (yarn preferred) to install FE, then type yarn dev. For BE, just type yarn ant then node app.js. 
-Make sure you are using 17.5+ node version. 
+Make sure you are using 17.5+ node version. Get your own api keys and put them info .env file.
 
 
 ## Used technologies - frontend
